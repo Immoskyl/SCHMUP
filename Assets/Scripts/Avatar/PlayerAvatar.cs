@@ -10,7 +10,7 @@ public class PlayerAvatar : BaseAvatar
     public int Energy
     {
         get => energy;
-        set => energy = value;
+        set => energy = value < maxEnergy ?  value : maxEnergy;
     }
     
     [SerializeField]
@@ -47,7 +47,7 @@ public class PlayerAvatar : BaseAvatar
 
     public override void Die()
     {
-        base.Die();
+        //base.Die();
         Application.Quit();
     }
 }

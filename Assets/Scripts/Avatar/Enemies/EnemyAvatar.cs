@@ -24,8 +24,14 @@ public class EnemyAvatar : BaseAvatar
         Simple
     }
 
+    void OnBecameInvisible()
+    {
+        EnemyFactory.Instance.Release(this);
+    }
+
     public override void Die()
     {
+        base.Die();
         EnemyFactory.Instance.Release(this);
     }
 }

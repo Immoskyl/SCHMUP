@@ -18,11 +18,6 @@ public class AIEnemyBasicEngine : MonoBehaviour
         enemy.Engines.Speed = new Vector2(-0.5f, 0);
     }
     
-    void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
-
     void FireAtRandomTimes()
     {
         enemy.GetComponent<BulletGun>().Fire();

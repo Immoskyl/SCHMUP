@@ -38,7 +38,7 @@ public class BaseAvatar : MonoBehaviour
     public float Health
     {
         get => health;
-        set => health = value;
+        set => health = value < maxHealth ?  value : maxHealth;
     }
 
     [SerializeField]
@@ -60,13 +60,13 @@ public class BaseAvatar : MonoBehaviour
         health -= damageTaken;
         if (health <= 0)
             Die();
-        if (OnAvatarDeath != null)
-            OnAvatarDeath(transform.position);
     }
 
     public virtual void Die()
     {
-        Destroy(gameObject);
+        if (OnAvatarDeath != null)
+            OnAvatarDeath(transform.position);
+        //Destroy(gameObject);
     }
 
     protected virtual void Init(float startSpeed, Vector3 position, float startHealth = 0)

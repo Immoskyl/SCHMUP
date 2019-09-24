@@ -37,7 +37,8 @@ public class UIManager : MonoBehaviour
 
     void AvatarDies(Vector3 pos)
     {    
-        Debug.Log("mdr t mort");
+        gameController.player.Health += 1;
+        gameController.player.Energy += 1;
     }
 
 }    
